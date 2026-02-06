@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valerian Bookstore Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        p {
+            line-height: 1.6;
+        }
+        .NavigationList li {
+        cursor: pointer;
+        }
+        .AsideArea img:first-of-type {
+        border: 3px solid orange;
+        }
+        .AsideArea img:nth-of-type(2) {
+        border: 3px solid green;
+        }
+        .AsideArea img:nth-of-type(3) {
+        border: 3px solid red;
+        }
+        .AsideArea img:last-of-type {
+        border: 3px solid blue;
+        }
+    </style>
+</head>
+<!-- Banner Area: left-side badge logo area and the company name you created on the right -->
+<body style="background-color:rgb(176, 153, 212)">
+    <p style="text-align: left;font-family:sans-serif; font-size:15px;">Badge Logo Area</p> 
+    <img src="https://i.etsystatic.com/24925057/r/il/0de621/2563407910/il_1588xN.2563407910_5drb.jpg", width="100px" />
+    <p style="text-align: right;font-family:sans-serif; font-size:15px;">Valerian Bookstore Homepage</p> 
+    <h1 style=" text-align: center;font-family:serif; color:rgb(92, 9, 169); font-size:25px" 
+    onmouseover="this.style.color='blue'" 
+    onmouseout="this.style.color='rgb(92, 9, 169)'">Valerian Bookstore</h1>  
+
+<!--Navigational: Home, About Us, Shopping Cart, Products, Login, Contact Us -->
+    <hr>
+    <nav class="NavigationList">
+        <u>Navigation Section</u>
+     <ul>
+        <li>&lt;Home &gt;</li>
+        <li>&lt;About Us &gt;</li>
+        <li>&lt;Shopping Cart &gt;</li>
+        <li>&lt;Products &gt;</li>
+        <li><a href="SignUp.html">Login/Signup</a></li>
+        <li>&lt;Contact Us &gt;</li>
+     </ul>
+    </nav>
+<!--Content Section: main content section with some current product sales -->
+    <hr>
+    <section class="ContentSection">
+        <u>Content Section</u>
+        <b style="font-style: italic;">: Current product sales for Valerian Bookstore</b>
+    </section>
+    <p id="notify">50% Off Hardcovers: Thousands of hardcover titles across all genres are currently half off!</p>
+    <p>New Year Clearance: Discounts of 50% on 2026 boxed calendars and holiday cards, with 25% off 2026 planners</p>
+    <p>Vinyl & Music: "Jazzuary" sale with 10% off vinyl and 20% off CDs, plus a "3 for $50" deal on select great vinyl</p>
+    <p>Exclusive Offers: Members can earn bonus stamps on journals and purchase exclusive holiday totes or candles for $19.99 to $29.99 with qualifying purchases</p>
+<!--Aside Area: aside area for displaying ads and marketing -->
+    <hr>
+    <aside class="AsideArea">
+        <u>Aside Section</u>
+        <p style="font-style: italic; color: black;">For displaying ads and marketing</p>
+        <img src="https://cdn.create.vista.com/downloads/f2e7b601-196f-4e5e-87c1-8b4268669f0c_1024.jpeg", width="150px"/>
+        <img src="https://bluesyemre.wordpress.com/wp-content/uploads/2014/11/ads-for-bookstores-read-yourself-interesting-boardroom.jpg", height="200"/>
+        <img src="https://newspaperads.ads2publish.com/wp-content/uploads/2017/12/books-can-take-you-places-lit-for-life-ad-the-hindu-chennai-8-12-2017.jpg", height="200", width="300px"/>
+        <img src="https://as1.ftcdn.net/jpg/05/36/50/46/1000_F_536504634_QUkNHhjq2DrqfKVKBNVng0wIWXoyX3PN.jpg", width="150px"/>
+
+    </aside>
+<!--Footer Area: with links to Terms of Use, Cookie and privacy policy, and Copyright-->
+    <hr>
+    <footer class="FooterArea">
+        <u>Footer Section</u>
+    <ul>
+        <li>&lt;Terms of Use &gt;</li>
+        <p>Link: </p>
+        <li>&lt;Cookie and Privacy Policy &gt;</li>
+        <p>Link: </p>
+        <li>&lt;Copyright &gt;</li>
+        <p>Link: </p>
+    </ul>
+    </footer>
+</body>
+</html>
