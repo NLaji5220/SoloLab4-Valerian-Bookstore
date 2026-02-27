@@ -14,7 +14,7 @@
 <!-- Content will go here -->
 <!-- Header Area Information -->
 <div class="container text-center">
-    <img src="https://i.etsystatic.com/24925057/r/il/0de621/2563407910/il_1588xN.2563407910_5drb.jpg", width="100px" />
+    <img src="https://i.etsystatic.com/24925057/r/il/0de621/2563407910/il_1588xN.2563407910_5drb.jpg" width="100px" />
     <h1 style=" text-align: center;font-family:serif; color:rgb(92, 9, 169); font-size:25px" 
     onmouseover="this.style.color='blue'" 
     onmouseout="this.style.color='rgb(92, 9, 169)'">Valerian Bookstore</h1>
@@ -47,22 +47,22 @@
 
 <!-- Main Body Content Area Information -->
  <div class="container mt-4">
-<form>
+<form id="SignUpForm">
     <div class="mb-3">
         <label for="UsernameInput1" class="form-label"> Username</label>
-        <input type="text" class="form-control" id="UsernameInput1" placeholder="Enter Username">
+        <input type="text" class="form-control" id="username" placeholder="Enter Username" onfocusout="validateField(this)">
     </div>
     <div class="mb-3">
         <label for="EmailInput1" class="form-label"> Email</label>
-        <input type="email" class="form-control" id="EmailInput1" placeholder="Enter Email Address">
+        <input type="email" class="form-control" id="email" placeholder="Enter Email Address" onfocusout="validateEmail()">
     </div>
     <div class="mb-3">
         <label for="PasswordInput1" class="form-label"> Password</label>
-        <input type="password" class="form-control" id="PasswordInput1" placeholder="Enter Password">
+        <input type="password" class="form-control" id="password" placeholder="Enter Password" onfocusout="validateField(this)">
     </div>
     <div class="mb-3">
         <label for="ConfirmPasswordInput1" class="form-label"> Confirm Password</label>
-        <input type="password" class="form-control" id="ConfirmPasswordInput1" placeholder="Confirm Password">
+        <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" onfocusout="validatePasswordMatch()">
     </div>
     <button type="submit" class="btn btn-primary w-15"> Sign-Up</button>
 </form>
@@ -73,6 +73,80 @@
 </footer>
 
 <!-- Bootstrap JS (optional, but for full Bootstrap functionality) -->
+ <script>
+
+function validateField(field) {
+    if (field.value.trim() === "") {
+        field.value = "This field is required";
+        field.style.color = "#FF0000";
+    } else {
+        field.style.color = "#000000";
+    }
+}
+function validateEmail() {
+    let email = document.getElementById("email");
+    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if (!pattern.test(email.value)) {
+        email.value = "Invalid email format (example: joe@test.com)";
+        email.style.color = "#FF0000";
+    } else {
+        email.style.color = "#000000";
+    }
+}
+function validatePasswordMatch() {
+    let password = document.getElementById("password");
+    let confirmPassword = document.getElementById("confirmPassword");
+
+    if (confirmPassword.value === "" || confirmPassword.value !== password.value) {
+        confirmPassword.value = "Try again. Passwords do not match";
+        confirmPassword.style.color = "#FF0000";
+    } else {
+        confirmPassword.style.color = "#000000";
+    }
+}
+document.getElementById("SignUpForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let username = document.getElementById("username");
+    let email = document.getElementById("email");
+    let password = document.getElementById("password");
+    let confirmPassword = document.getElementById("confirmPassword");
+
+    let valid = true;
+    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if (username.value.trim() === "") {
+        username.value = "This field is required";
+        username.style.color = "#FF0000";
+        valid = false;
+    }
+
+    if (!pattern.test(email.value)) {
+        email.value = "Invalid email format (example: joe@test.com)";
+        email.style.color = "#FF0000";
+        valid = false;
+    }
+
+    if (password.value.trim() === "") {
+        password.value = "This field is required";
+        password.style.color = "#FF0000";
+        valid = false;
+    }
+
+    if (confirmPassword.value === "" || confirmPassword.value !== password.value) {
+        confirmPassword.value = "Passwords do not match";
+        confirmPassword.style.color = "#FF0000";
+        valid = false;
+    }
+
+    if (valid) {
+        alert("Form submitted successfully!");
+    } else {
+        alert("Please correct the highlighted fields.");
+    }
+});
+</script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
