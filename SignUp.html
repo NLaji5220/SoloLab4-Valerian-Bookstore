@@ -77,10 +77,9 @@
 
 function validateField(field) {
     if (field.value.trim() === "") {
-        field.value = "This field is required";
-        field.style.color = "#FF0000";
+        field.classList.add("is-invalid");
     } else {
-        field.style.color = "#000000";
+        field.classList.remove("is-invalid");
     }
 }
 function validateEmail() {
@@ -88,10 +87,9 @@ function validateEmail() {
     let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
     if (!pattern.test(email.value)) {
-        email.value = "Invalid email format (example: joe@test.com)";
-        email.style.color = "#FF0000";
+        email.classList.add("is-invalid");
     } else {
-        email.style.color = "#000000";
+        email.classList.remove("is-invalid");
     }
 }
 function validatePasswordMatch() {
@@ -99,10 +97,9 @@ function validatePasswordMatch() {
     let confirmPassword = document.getElementById("confirmPassword");
 
     if (confirmPassword.value === "" || confirmPassword.value !== password.value) {
-        confirmPassword.value = "Try again. Passwords do not match";
-        confirmPassword.style.color = "#FF0000";
+        confirmPassword.classList.add("is-invalid");
     } else {
-        confirmPassword.style.color = "#000000";
+        confirmPassword.classList.remove("is-invalid");
     }
 }
 document.getElementById("SignUpForm").addEventListener("submit", function(event) {
@@ -116,28 +113,36 @@ document.getElementById("SignUpForm").addEventListener("submit", function(event)
     let valid = true;
     let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
+    // Username
     if (username.value.trim() === "") {
-        username.value = "This field is required";
-        username.style.color = "#FF0000";
+        username.classList.add("is-invalid");
         valid = false;
+    } else {
+        username.classList.remove("is-invalid");
     }
 
+    // Email
     if (!pattern.test(email.value)) {
-        email.value = "Invalid email format (example: joe@test.com)";
-        email.style.color = "#FF0000";
+        email.classList.add("is-invalid");
         valid = false;
+    } else {
+        email.classList.remove("is-invalid");
     }
 
+    // Password
     if (password.value.trim() === "") {
-        password.value = "This field is required";
-        password.style.color = "#FF0000";
+        password.classList.add("is-invalid");
         valid = false;
+    } else {
+        password.classList.remove("is-invalid");
     }
 
+    // Confirm Password
     if (confirmPassword.value === "" || confirmPassword.value !== password.value) {
-        confirmPassword.value = "Passwords do not match";
-        confirmPassword.style.color = "#FF0000";
+        confirmPassword.classList.add("is-invalid");
         valid = false;
+    } else {
+        confirmPassword.classList.remove("is-invalid");
     }
 
     if (valid) {
